@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.doctorapp.ui.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_edit_patient"
+            app:destination="@id/editorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editorFragment"
+        android:name="com.example.doctorapp.ui.EditorFragment"
+        android:label="fragment_editor"
+        tools:layout="@layout/fragment_editor" >
+        <argument
+            android:name="patientId"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="patientName"
+            app:argType="string"
+            android:defaultValue='' />
+        <argument
+            android:name="patientOHIP"
+            app:argType="string"
+            android:defaultValue='' />
+        <argument
+            android:name="patientDOB"
+            app:argType="string"
+            android:defaultValue='' />
+        <argument
+            android:name="patientGender"
+            app:argType="string"
+            android:defaultValue='' />
+        <argument
+            android:name="patientPhone"
+            app:argType="string"
+            android:defaultValue='' />
+        <argument
+            android:name="patientAddress"
+            app:argType="string"
+            android:defaultValue='' />
+        <argument
+            android:name="patientEmail"
+            app:argType="string"
+            android:defaultValue='' />
+    </fragment>
+</navigation>
