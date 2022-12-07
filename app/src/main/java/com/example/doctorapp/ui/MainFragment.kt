@@ -29,7 +29,6 @@ class MainFragment : Fragment(), PatientsListAdapter.ListItemListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         //disable the display of up-button on Home Screen's Action Bar
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
@@ -56,14 +55,13 @@ class MainFragment : Fragment(), PatientsListAdapter.ListItemListener {
             binding.recyclerView.layoutManager = LinearLayoutManager(activity)
         })
 
-
         binding.floatingActionButton.setOnClickListener {
             onItemClick(NEW_PATIENT_ID)
         }
 
-
         return binding.root
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         //display delete icon on the menu bar if the user selected an item by checking it
@@ -73,11 +71,10 @@ class MainFragment : Fragment(), PatientsListAdapter.ListItemListener {
             }else{
                 R.menu.menu_main
             }
-
-
         inflater.inflate(menuId, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
@@ -88,6 +85,7 @@ class MainFragment : Fragment(), PatientsListAdapter.ListItemListener {
         }
     }
 
+
     private fun deleteSelectedPatients(): Boolean {
         viewModel.deletePatients(adapter.selectedPatients)
         Handler(Looper.getMainLooper()).postDelayed({
@@ -97,10 +95,12 @@ class MainFragment : Fragment(), PatientsListAdapter.ListItemListener {
         return true
     }
 
+
     private fun addSampleData(): Boolean {
         viewModel.addSampleData()
         return true
     }
+
 
     override fun onItemClick(patientId: Int) {
         Log.i(TAG, "onItemClick: received patient id $patientId")
@@ -108,8 +108,10 @@ class MainFragment : Fragment(), PatientsListAdapter.ListItemListener {
         findNavController().navigate(action)
     }
 
+
     override fun onItemSelectionChanged() {
         requireActivity().invalidateOptionsMenu()
     }
+
 
 }

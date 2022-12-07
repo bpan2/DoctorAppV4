@@ -34,7 +34,7 @@ class EditorViewModel(application: Application) : AndroidViewModel(application) 
         currentPatient.value?.let{
             it.patient_name = it.patient_name.trim()
 
-            //the id and the name field of the patient's record is empty, don't update it
+            //if the id is the default constant "NEW_PATIENT_ID" and the name field of the patient's record is empty, don't update it
             if(it.id == NEW_PATIENT_ID && it.patient_name.isEmpty()){
                 return
             }

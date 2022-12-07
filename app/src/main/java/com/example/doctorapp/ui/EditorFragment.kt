@@ -47,9 +47,10 @@ class EditorFragment : Fragment() {
                 "Edit Patient"
             }
 
-
         viewModel = ViewModelProvider(this).get(EditorViewModel::class.java)
         binding = FragmentEditorBinding.inflate(inflater, container, false)
+
+        //set all the input fields blank when starting the action of adding a new patient
         binding.nameOutlinedTextField.editText?.setText("")
         binding.OHIPIdOutlinedTextField.editText?.setText("")
         binding.dobOutlinedTextField.editText?.setText("")
@@ -59,7 +60,7 @@ class EditorFragment : Fragment() {
         binding.emailOutlinedTextField.editText?.setText("")
 
 
-        //enalbe the device's back-button or back gesture to navigate from Editor screen back to Home Screen
+        //enable the device's back-button or back gesture to navigate from Editor screen back to Home Screen
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner,
             object : OnBackPressedCallback(true){

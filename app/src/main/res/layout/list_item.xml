@@ -31,4 +31,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/fab"
         tools:text="Some text to display during design" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

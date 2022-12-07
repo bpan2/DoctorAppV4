@@ -1,11 +1,9 @@
 package com.example.doctorapp.repository
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.doctorapp.database.AppDatabase
-import com.example.doctorapp.database.PatientDao
 import com.example.doctorapp.models.PatientEntity
 import com.example.doctorapp.network.PatientService
 import kotlinx.coroutines.CoroutineScope
@@ -28,7 +26,6 @@ class PatientRepository(application: Application) {
 
         //if the local dbs is empty, retrieve data from the remote sources
         if (allPatients?.value == null) {
-            Log.i("inside repo init", "allPatients is null branch")
             coroutineScope.launch {
                 val patientList = PatientService.retrofitClient.getAllPatients()
                 withContext(Dispatchers.IO) {
@@ -40,8 +37,13 @@ class PatientRepository(application: Application) {
 
 
     //operations on a single patient
-    suspend fun insertPatient(patientEntity: PatientEntity) =
+    suspend fun insertPatient(patientEntity: PatientEntity) {
+        coroutineScope.launch {
+            PatientService.retrofitClient.addPatient(patientEntity.id, patientEntity.patient_name, patientEntity.patient_DOB, patientEntity.patient_gender)
+        }
         db?.patientDao()?.insertPatient(patientEntity)
+    }
+
 
     suspend fun getPatientById(id: Int) = db?.patientDao()?.getPatientById(id)
     suspend fun updatePatient(patientEntity: PatientEntity) =
@@ -57,6 +59,16 @@ class PatientRepository(application: Application) {
         db?.patientDao()?.getAllPatients()
 
     suspend fun deleteAllPatients() = db?.patientDao()?.deleteAllPatients()
-    suspend fun deletePatients(selectedPatients: List<PatientEntity>) =
+    suspend fun deletePatients(selectedPatients: List<PatientEntity>) {
+        //delete the selected patients on the microservice
+        selectedPatients.forEach{
+            coroutineScope.launch {
+                PatientService.retrofitClient.deletePatient(it.id)
+            }
+        }
+
+        //delete the selected patients on Room dbs
         db?.patientDao()?.deletePatients(selectedPatients)
+    }
+
 }
