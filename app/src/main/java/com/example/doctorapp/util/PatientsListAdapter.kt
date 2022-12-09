@@ -28,7 +28,9 @@ class PatientsListAdapter (private val patientsList: List<PatientEntity>, privat
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val patient = patientsList[position]
         with(holder.binding){
-            patientText.text = patient.patient_name + ": "  + patient.patient_gender + ", "+ patient.patient_DOB
+            nameChip.text = "Name: " + patient.patient_name
+            OHIPChip.text = "OHIP: " + patient.patient_OHIP
+            DOBChip.text = "Date-of-birth:" + patient.patient_DOB
             root.setOnClickListener{
                 listener.onItemClick(patient.id)
             }

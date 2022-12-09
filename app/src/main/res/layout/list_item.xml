@@ -10,26 +10,76 @@
         android:layout_width="72dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:clickable="true"
+        android:contentDescription="@string/patient_icon_description"
+        android:focusable="true"
         app:fabSize="mini"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:clickable="true"
-        android:focusable="true"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_person"
-        />
+        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
 
-    <TextView
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/patientText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintTop_toTopOf="parent"
+        android:maxLines="4"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/fab"
-        tools:text="Some text to display during design" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/nameChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            app:chipBackgroundColor="@color/design_default_color_secondary_variant"
+            app:chipSpacingVertical="1dp"
+            tools:ignore="TextContrastCheck"
+            tools:text="Name: " />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/OHIPChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            app:chipBackgroundColor="@color/design_default_color_secondary_variant"
+            app:chipSpacingVertical="1dp"
+            tools:ignore="TextContrastCheck"
+            tools:text="OHIP:" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/DOBChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            app:chipBackgroundColor="@color/design_default_color_secondary_variant"
+            app:chipSpacingVertical="1dp"
+            tools:ignore="TextContrastCheck"
+            tools:text="DOB:" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -77,6 +77,7 @@ data class PatientEntity(
     }
 }*/
 
+@kotlinx.serialization.Serializable
 data class PatientMedicalRecord(
     var height_cm: Int?,
     var weight_kg: Int?,
@@ -91,7 +92,7 @@ data class PatientMedicalRecord(
     var heart_attack: Boolean?,
     var concussion: Boolean?,
     var muscle_cramps: Boolean?,
-    var orthotics: Boolean?,
+    var orthotics: Boolean?
     //val medical_reports: MedicalReport?
 )
 

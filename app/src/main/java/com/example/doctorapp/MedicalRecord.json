@@ -1,0 +1,18 @@
+{
+  "patient_medicalrecord": {
+    "height_cm": 170,
+    "weight_kg": 110,
+    "blood_pressure_kPa": 110,
+    "allergies": false,
+    "asthma": false,
+    "diabetes": true,
+    "hospitalization": "Never",
+    "seizures": false,
+    "chest_pain": true,
+    "headaches": true,
+    "heart_attack": true,
+    "concussion": false,
+    "muscle_cramps": false,
+    "orthotics": false
+  }
+}

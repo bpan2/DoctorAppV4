@@ -33,4 +33,7 @@ interface PatientDao {
 
     @Query("DELETE FROM patients")
     fun deleteAllPatients(): Int
+
+    @Query("SELECT (SELECT COUNT(*) FROM patients) == 0")
+    fun isEmpty(): Boolean
 }

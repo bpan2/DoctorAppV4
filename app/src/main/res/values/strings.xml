@@ -2,4 +2,26 @@
     <string name="app_name">DoctorApp</string>
     <string name="label">Name</string>
     <string name="add_sample_data">Add sample data</string>
+    <string name="full_name_label">Full name</string>
+    <string name="address_label">Address</string>
+    <string name="email_label">Email</string>
+    <string name="phone_label">Phone</string>
+    <string name="gender_label">Gender</string>
+    <string name="date_of_birth_label">Date of birth</string>
+    <string name="ohip_id_label">OHIP ID</string>
+    <string name="height_in_cm_label">Height (in cm)</string>
+    <string name="weight_in_kg_label">Weight (in kg)</string>
+    <string name="blood_pressure_label">Blood Pressure</string>
+    <string name="allergies_label">Allergies</string>
+    <string name="asthma_label">Asthma</string>
+    <string name="diabetes_label">Diabetes</string>
+    <string name="hospitalization_label">Hospitalization</string>
+    <string name="chest_pain_label">Chest Pain</string>
+    <string name="seizures_label">Seizures</string>
+    <string name="headaches_label">Headaches</string>
+    <string name="heart_attack_label">Heart Attack</string>
+    <string name="concussion_label">Concussion</string>
+    <string name="muscle_cramps_label">Muscle Cramps</string>
+    <string name="orthotics_label">Orthotics</string>
+    <string name="patient_icon_description">patient_icon</string>
 </resources>
